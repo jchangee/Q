@@ -17,9 +17,11 @@
 		height: 95/70rem;
 		line-height: 95/70rem;
 		font-size: 40/70rem;	
-		border-bottom: 1px solid #ccc;	
+		border-bottom: 2/75rem solid #ccc;	
 		text-align:center;
+		text-indent: -20/70rem;
 		.iconfont{
+			float: left;
 			font-size: 30/70rem;
 			margin-left: 25/70rem;
 		}	

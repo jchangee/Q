@@ -15,7 +15,7 @@
 	.ClassifyInnerItem{
 		display: inline-block;
 		width: 20%;
-		height: 80/70rem;
+		/*height: 80/70rem;*/
 		line-height: 80/70rem;
 		font-size: 35/70rem;
 		text-align: center;

@@ -69,6 +69,11 @@
 
 
 <style lang="less">
+	.bgWhite{
+		background: white;
+		font-size: 40/60rem;
+		font-weight: bold;
+	}
 	.ShoppingTrolley{
 		input{
 			font-size: 30/60rem;
@@ -80,17 +85,9 @@
 			font-size: 30/60rem!important;
 		}		
 	}
-.bgWhite{
-	background: white;
-	font-size: 30/60rem;
-	font-weight: bold;
-}
 	/*购物车店名*/
 .shoppingTitle{
-	height: 80/60rem;
-	line-height: 80/60rem;
 	padding: 0 20/60rem;
-	border-bottom: 1px solid #ccc;
 	font-size: 25/60rem;
 	text-align: left;
 	background: white;
