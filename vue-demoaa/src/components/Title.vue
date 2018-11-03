@@ -14,7 +14,7 @@
 		height: 75/60rem;
 		line-height: 75/60rem;
 		text-align: center;
-		background: #fff;
+		background: #dedede;
 		font-size: 30/60rem;
 		border-bottom: 2/70rem solid #ccc;
 	}
