@@ -1,7 +1,9 @@
 <template>
 	<div class="Login">
 		<PageHead txt="用户登录">
-			<i slot="icon" class="fl iconfont icon-jiantou11"></i>
+			<router-link to="/Mine" slot="icon">				
+				<i class="fl iconfont icon-jiantou11"></i>
+			</router-link>
 		</PageHead>
 		<div class="login-input">
 			<input class="phone" type="text" placeholder="输入手机号" />

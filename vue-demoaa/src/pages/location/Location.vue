@@ -1,7 +1,9 @@
 <template>
 	<div class="Location">
 		<PageHead txt="新增收货地址" class="Location-top">
-			<i slot="icon" class="fl iconfont icon-jiantou11"></i>
+			<router-link to="/Mine" slot="icon">				
+				<i class="fl iconfont icon-jiantou11"></i>
+			</router-link>
 		</PageHead>
 		<div class="Location-content">
 			<div class="item">
