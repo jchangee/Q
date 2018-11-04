@@ -28,6 +28,9 @@
 			</div>
 			<div class="item">
 				<span>设置为默认:</span>
+				<span class="fr switch">
+					<mt-switch v-model="value" @change="turn"></mt-switch>	
+				</span>
 			</div>
 		</div>
 		<div class="preservation-item">			
@@ -39,10 +42,22 @@
 <script>
 	//引入PageHead
 	import PageHead from "@/components/PageHead"
+//	引入开关
+	import { Switch } from 'mint-ui';
 	//注册PageHead组件
 		export default{
 			components:{
 				PageHead
+			},
+			date(){
+				return {
+					value:false
+				}
+			},
+			methods:{
+			  	turn: function(){
+			  		console.log(this.value)
+			  	}
 			}
 		}
 </script>
@@ -91,5 +106,11 @@
 			outline: none;
 			border: none;
 			font-size: 30/70rem;
+		}
+		
+		/*开关*/
+		.switch{
+			width: 75/70rem!important;
+			margin: 25/70rem 25/70rem 0 0;
 		}
 </style>
