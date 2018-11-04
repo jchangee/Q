@@ -148,6 +148,7 @@
 			background: #ff5948;
 			color: white;
 			font-size: 30/60rem;
+			outline: none;
 		}
 	}
 }

@@ -7,7 +7,7 @@
 		</PageHead>
 		<div class="Location-content">
 			<div class="item">
-				<span>收货人:</span>
+				<span>收 货 人 :</span>
 				<input type="text" placeholder="请输入收货人"/>
 			</div>
 			<div class="item">
@@ -78,7 +78,6 @@
 			line-height: 100/70rem;
 			span{
 				display: inline-block;
-				width: 180/70rem;
 				text-indent: 20/70rem;
 				font-size:30/70rem ;
 			}
@@ -110,7 +109,6 @@
 		
 		/*开关*/
 		.switch{
-			width: 75/70rem!important;
-			margin: 25/70rem 25/70rem 0 0;
+			margin: 35/70rem 25/70rem 0 0;
 		}
 </style>
