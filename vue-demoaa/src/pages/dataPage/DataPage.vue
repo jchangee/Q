@@ -325,7 +325,7 @@
 				}
 			}
 			.Evaluation-item{
-				margin-top:50/70rem:
+				margin-top:50/70rem;
 				position: relative;
 				width: 100%;
 				height: 400/70rem;
