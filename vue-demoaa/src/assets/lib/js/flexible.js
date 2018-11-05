@@ -48,7 +48,7 @@
             // 其他设备下，仍旧使用1倍的方案
             dpr = 2;
         }
-        scale = 2 / dpr;
+        scale = 1.3 / dpr;
     }
 
     docEl.setAttribute('data-dpr', dpr);

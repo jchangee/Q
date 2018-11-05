@@ -1,11 +1,13 @@
 <template>
 	<div class="Location">
 		<PageHead txt="新增收货地址" class="Location-top">
-			<i slot="icon" class="fl iconfont icon-jiantou11"></i>
+			<router-link to="/Mine" slot="icon">				
+				<i class="fl iconfont icon-jiantou11"></i>
+			</router-link>
 		</PageHead>
 		<div class="Location-content">
 			<div class="item">
-				<span>收货人:</span>
+				<span>收 货 人 :</span>
 				<input type="text" placeholder="请输入收货人"/>
 			</div>
 			<div class="item">
@@ -26,6 +28,9 @@
 			</div>
 			<div class="item">
 				<span>设置为默认:</span>
+				<span class="fr switch">
+					<mt-switch v-model="value" @change="turn"></mt-switch>	
+				</span>
 			</div>
 		</div>
 		<div class="preservation-item">			
@@ -37,10 +42,22 @@
 <script>
 	//引入PageHead
 	import PageHead from "@/components/PageHead"
+//	引入开关
+	import { Switch } from 'mint-ui';
 	//注册PageHead组件
 		export default{
 			components:{
 				PageHead
+			},
+			date(){
+				return {
+					value:false
+				}
+			},
+			methods:{
+			  	turn: function(){
+			  		console.log(this.value)
+			  	}
 			}
 		}
 </script>
@@ -61,7 +78,6 @@
 			line-height: 100/70rem;
 			span{
 				display: inline-block;
-				width: 180/70rem;
 				text-indent: 20/70rem;
 				font-size:30/70rem ;
 			}
@@ -89,5 +105,10 @@
 			outline: none;
 			border: none;
 			font-size: 30/70rem;
+		}
+		
+		/*开关*/
+		.switch{
+			margin: 35/70rem 25/70rem 0 0;
 		}
 </style>

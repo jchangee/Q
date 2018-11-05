@@ -21,9 +21,7 @@ import Register from '@/pages/register/Register'
 //导入地址页面
 import Location from '@/pages/location/Location'
 
-//导入分类里面的狗粮跟品牌
-import DogFood from '@/pages/classify/classTab/dogFood'
-import Brand from '@/pages/classify/classTab/brand'
+
 
 //导入分类里面详细分类页面
 import ClassifyInner from '@/pages/classify/ClassifyInner'
@@ -45,11 +43,6 @@ export default new Router({
       path: '/classify',
       name: 'Classify',
       component: Classify,
-//    chlidren:[
-//    	{path:"classTab/dogFood",component:DogFood},
-//    	{path:"classTab/brand",component:Brand},
-//    	{path:"",component:DogFood}
-//    ]
    },
    {
       path: '/shoppingTrolley',
