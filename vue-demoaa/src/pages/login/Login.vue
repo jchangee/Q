@@ -9,7 +9,9 @@
 			<input class="phone" type="text" placeholder="输入手机号" v-model="phone"/>
 			<span class="verification-code">获取验证码</span>
 			<input class="message" type="text" placeholder="输入短信验证码" v-model="message" @keyup="ChangeSub"/>
-			<span class="registers fr">用户注册</span>
+			<router-link to="/Register">
+				<span class="registers fr">用户注册</span>
+			</router-link>
 			<input :class="signIn" type="submit" value="登录" @click="LoginIn()"/>
 		</div>
 		<!--头部滑出模块-->

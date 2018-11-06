@@ -119,23 +119,49 @@
 					</div>
 				</div>
 			</div>
+			<div class="Evaluation-btn">
+				<input type="submit" value="查看全部评论" />
+			</div>
 		</div>
-		<div class="a">
-			大
+		<div class="DataPage-brand white">
+			<img src="../../assets/images/brand7.jpg"/>
+			<span>皇家</span>
+			<span class="authorization">授权</span>
+			<span class="brand">进入品牌</span>
+		</div>
+		<div class="DataPage-img">
+			<img src="../../assets/images/brand8.jpg"/>
+			<img src="../../assets/images/brand9.jpg"/>
+		</div>
+		<div class="DataPage-bottom">
+			<TabbarItem @change="getVal" txt="首页" mark="home" :sel="selected">
+				<i class="iconfont icon-shouye"></i>
+			</TabbarItem>
+			<TabbarItem @change="getVal" txt="购物车" mark="shoppingTrolley" :sel="selected">
+				<i class="iconfont icon-gouwuche"></i>
+			</TabbarItem>
+			<span class="bottom-item1">立即购买</span>
+			<span class="bottom-item2">加入购物车</span>
 		</div>
 	</div>
 </template>
 
 <script>
+	//	引入Tabbar-item组件
+	import TabbarItem from "@/components/TabbarItem"
 	//引入PageHead
 	import PageHead from "@/components/PageHead"
 	//	引入banner轮播图组件
 	import Banner from "@/components/Banner"
-	//注册PageHead组件
+
 	export default {
 		components: {
 			PageHead,
-			Banner
+			Banner,
+			TabbarItem
+		},
+		created(){
+			this.$emit("tabbarshow",false)
 		}
 	}
 </script>
@@ -256,12 +282,12 @@
 					color: red;
 				}
 				label {
-					font-size: 20/70rem;
+					font-size: 30/70rem;
 					display: inline-block;
 					color: #999;
 				}
 				span {
-					font-size: 20/70rem;
+					font-size: 25/70rem;
 					display: inline-block;
 					text-indent: 10/70rem;
 				}
@@ -273,12 +299,12 @@
 				font-size: 20/70rem;
 				padding: 10/70rem 0;
 				label {
-					font-size: 20/70rem;
+					font-size: 30/70rem;
 					display: inline-block;
 					color: #999;
 				}
 				span {
-					font-size: 20/70rem;
+					font-size: 25/70rem;
 					display: inline-block;
 					text-indent: 10/70rem;
 					background: red;
@@ -292,12 +318,12 @@
 				font-size: 20/70rem;
 				padding: 10/70rem 0;
 				label {
-					font-size: 20/70rem;
+					font-size: 30/70rem;
 					display: inline-block;
 					color: #999;
 				}
 				span {
-					font-size:20/70rem;
+					font-size:25/70rem;
 					display: inline-block;
 					text-indent: 10/70rem;
 				}
@@ -307,7 +333,6 @@
 			width:100%;
 			margin-top: 30/70rem;
 			padding: 5/70rem 20/70rem;
-			margin-top: 30/70rem;
 			box-sizing: border-box;
 			.Evaluation-all{
 				width: 100%;
@@ -345,6 +370,7 @@
 						overflow: hidden;
 						white-space: nowrap;
 						text-overflow: ellipsis;
+						padding-left:20/70rem ;
 					}
 					.iconfont{
 						width: 70/70rem;
@@ -376,7 +402,7 @@
 					}
 					.stars{
 						overflow: hidden;
-						width: 150/70rem;
+						width: 210/70rem;
 						img{
 							width:210/70rem;
 							height: 33/70rem;
@@ -403,9 +429,111 @@
 					}
 				}
 			}
+			.Evaluation-btn{
+				width: 100%;
+				height: 150/70rem;
+				line-height: 150/70rem;
+				text-align: center;
+				input{
+					width: 80%;
+					height: 80/70rem;
+					border: 1px solid #f55b50;
+					border-radius:70/70rem ;
+					outline: none;
+					font-size: 40/70rem;
+					background: #fff;
+					color: #f55b50;	
+				}
+			}
 		}
-		.a {
-			margin-bottom: 300/70rem;
+		
+		.DataPage-brand{
+			margin-top: 20/70rem;
+			margin-bottom: 30/70rem;
+			border-bottom: 1px solid #ccc;
+			padding: 5/70rem 20/70rem;
+			position: relative;
+			img{
+				width: 200/70rem;
+				height: 150/70rem;
+				border: 1px solid #ccc;
+				border-radius:40/70rem ;
+			}
+			span{
+				position: absolute;
+				top: 20%;
+				left: 35%;
+				font-size:30/70rem ;
+			}
+			.authorization{
+				top: 50%;
+				left: 34%;
+				width: 70/70rem;
+				height: 50/70rem;
+				line-height: 50/70rem;
+				text-align: center;
+				background: red;
+				color: #fff;
+			}
+			.brand{
+				position: absolute;
+				top: 29%;
+				left: 68%;
+				color: #fff;
+				background: #ff6e5e;
+				width:200/70rem;
+				height:70/70rem;
+				text-align: center;
+				line-height: 70/70rem;
+				outline: none;
+				border-radius:30/70rem ;
+			}
 		}
+		.DataPage-img{
+			width: 100%;
+			img{
+				width: 100%;
+			}
+		}
+		.DataPage-bottom{
+			width: 100%;
+			border-top: 1px solid gainsboro;
+			position: fixed;
+			bottom: 0;
+			background: white;
+			z-index: 99;
+			.TabbarItem{
+				width: 20%;
+			}
+			.bottom-item1{
+				right: 32%;
+				font-size: 30/70rem;
+				position: absolute;
+				top: 20%;
+				display: inline-block;
+				width: 200/70rem;
+				height: 70/70rem;
+				text-align: center;
+				line-height: 70/70rem;
+				color: #fff;
+				background:#ffcf3e;
+				border-radius:30/70rem 0rem 0rem 30/70rem;
+			}
+			.bottom-item2{
+				font-size: 30/70rem;
+				position: absolute;
+				top: 20%;
+				left: 68%;
+				display: inline-block;
+				width: 200/70rem;
+				height: 70/70rem;
+				text-align: center;
+				line-height: 70/70rem;
+				color: #fff;
+				background:#ff6353;
+				border-radius:0rem 30/70rem 30/70rem 0rem;
+			}
+		}
+		
 	}
 </style>

@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <router-view/>
-    <Tabbar></Tabbar>
+    <router-view @tabbarshow="tabbarshow"/>
+    <Tabbar v-if="tabbarshow1"></Tabbar>
   </div>
 </template>
 
@@ -15,9 +15,19 @@ export default {
 //	注册tabber组件
   	Tabbar
   },
+  data(){
+  	return {
+  		tabbarshow1:true
+  	}
+  },
   mounted(){
 		//路径应该为首页
 		this.$router.push("/");
+	},
+	methods:{
+    tabbarshow(show){
+    	this.tabbarshow1=show
+    }
 	}
 }
 </script>
