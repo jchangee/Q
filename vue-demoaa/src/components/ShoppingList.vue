@@ -1,18 +1,18 @@
-<template>
-	<div class="shoppingMsg clearfix">
+<template v-if="list.length">
+	<div class="shoppingMsg clearfix ">
 		<div class="fl">
-			<input type="checkbox" checked  class="left-input"/>
+			<input type="checkbox" class="left-input" :checked="checked"/>
 			<div class="imgbox">
-				<slot name="leftImg"></slot>
+				<img :src="imgUrl"/>
 			</div>
 		</div>
 		<div class="fr">
 			<div>
 				<div class="fl">
-					<slot name="shoppingTxt"></slot>
+					<p>{{name}}</p>
 				</div>
 				<div class="fr">
-					<i class="iconfont icon-shanchu"></i>
+					<i @click="handleRemove(index)" class="iconfont icon-shanchu"></i>
 				</div>
 			</div>
 			<div class="addMsg clearfix">
@@ -20,9 +20,9 @@
 					￥<span>{{price}}</span>
 				</div>
 				<div class="fr">
-					<input class="fl" type="button" name="" value="-" />
-					<input class="fl" type="text" name=""  :value="quantity" />
-					<input class="fl" type="button" name=""  value="+" />
+					<input @click="handleReduce(index)" class="fl" type="button" value="-"  />
+					<input class="fl" type="text" :value="count" />
+					<input @click="handleAdd(index)" class="fl" type="button" value="+" />
 				</div>
 			</div>
 		</div>
@@ -31,7 +31,20 @@
 
 <script>
 	export default {
-		props:["price","quantity"]
+		props:["price","count","id","name","imgUrl","index","checked"],
+		
+		methods: {
+	        handleReduce: function(index){
+				this.$emit("Reducecount",this.index)
+	        },
+	        handleAdd: function(index){
+				this.$emit("countadd",this.index)
+	        },
+	        handleRemove: function(index){
+	        	this.$emit("Remove",this.index)
+	        },
+//	        
+   		 }
 	}
 </script>
 
