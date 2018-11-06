@@ -1,7 +1,9 @@
 <template>
 	<div class="DataPage">
 		<PageHead txt="详情页" class="white">
-			<i slot="icon" class="fl iconfont icon-jiantou11"></i>
+			<router-link to="/ClassifyInner" slot="icon">
+				<i class="fl iconfont icon-jiantou11"></i>				
+			</router-link>
 		</PageHead>
 		<!--轮播图-->
 		<Banner class="DataPage-sowingMap white" :paginationShow="true" :autoplay="5000" paginationPosition="right" paginationType='fraction'>
@@ -74,31 +76,32 @@
 				<div class="item-top clearfix">
 					<img class="imgs" src="../../assets/images/classMsg3.jpg" />
 					<span>华石萨</span>
-					<i class="iconfont icon-jiantou"></i>
+					<i class="iconfont icon-vip-v1-copy"></i>
 					<div class="star"></div>
 					<div class="stars">
 						<img src="../../assets/images/star.png"/>
 					</div>
 					<p>由于寄养在我家的可乐宝贝很爱吃我家欢仔的皇家小奶糕，所以可乐妈也就麻烦我替她代卖</p>
 					<div class="image">
-						<img class="Dog1" src="../../assets/images/Dog1.jpg"/>
-						<img class="Dog2" src="../../assets/images/Dog2.jpg"/>
+						<img class="fl" src="../../assets/images/Dog1.jpg"/>
+						<img class="fl" src="../../assets/images/Dog2.jpg"/>
+						<img class="fl" src="../../assets/images/Dog2.jpg"/>
 					</div>
 				</div>
 			</div>
 			
 			<div class="Evaluation-item clearfix">
 				<div class="item-top clearfix">
-					<img class="imgs" src="../../assets/images/banner-slide12.png" />
+					<img class="imgs" src="../../assets/images/classMsg1.jpg" />
 					<span>当时</span>
-					<i class="iconfont icon-jiantou"></i>
+					<i class="iconfont icon-vip-v2-copy"></i>
 					<div class="star"></div>
 					<div class="stars">
 						<img src="../../assets/images/star.png"/>
 					</div>
 					<p>超级喜欢这狗粮的，狗狗很喜欢很喜欢吃呢。怎么吃也吃不腻</p>
 					<div class="image">
-						<img class="Dog1" src="../../assets/images/Dog3.jpg"/>
+						<img class="fl" src="../../assets/images/Dog3.jpg"/>
 					</div>
 				</div>
 			</div>
@@ -107,15 +110,16 @@
 				<div class="item-top clearfix">
 					<img class="imgs" src="../../assets/images/banner2.jpg" />
 					<span>舒服舒服</span>
-					<i class="iconfont icon-jiantou"></i>
+					<i class="iconfont icon-vip-v3-copy"></i>
 					<div class="star"></div>
 					<div class="stars">
 						<img src="../../assets/images/star.png"/>
 					</div>
 					<p>狗狗很喜欢很喜欢吃呢，我家宝贝爱吃很好买几次还会买不过最好再便宜些  </p>
-					<div class="image">
-						<img class="Dog1" src="../../assets/images/Dog4.jpg"/>
-						<img class="Dog2" src="../../assets/images/Dog5.jpg"/>
+					<div class="image clearfix">
+						<img class="fl" src="../../assets/images/Dog4.jpg"/>
+						<img class="fl" src="../../assets/images/Dog5.jpg"/>
+						<img class="fl" src="../../assets/images/Dog5.jpg"/>
 					</div>
 				</div>
 			</div>
@@ -134,10 +138,10 @@
 			<img src="../../assets/images/brand9.jpg"/>
 		</div>
 		<div class="DataPage-bottom">
-			<TabbarItem @change="getVal" txt="首页" mark="home" :sel="selected">
+			<TabbarItem txt="首页" mark="home" >
 				<i class="iconfont icon-shouye"></i>
 			</TabbarItem>
-			<TabbarItem @change="getVal" txt="购物车" mark="shoppingTrolley" :sel="selected">
+			<TabbarItem txt="购物车" mark="shoppingTrolley">
 				<i class="iconfont icon-gouwuche"></i>
 			</TabbarItem>
 			<span class="bottom-item1">立即购买</span>
@@ -234,7 +238,7 @@
 					width: 90%;
 					font-size: 30/70rem;
 				}
-				p {
+				p{
 					font-size: 20/70rem;
 					color: #999;
 				}
@@ -353,7 +357,6 @@
 				margin-top:50/70rem;
 				position: relative;
 				width: 100%;
-				height: 400/70rem;
 				.item-top{
 					position:relative;
 					.imgs{
@@ -362,7 +365,7 @@
 						border-radius:50%;	
 					}
 					span{
-						width: 60/70rem;
+						width: 115/70rem;
 						font-size:30/70rem ;
 						color: #566da4;
 						position: absolute;
@@ -370,30 +373,31 @@
 						overflow: hidden;
 						white-space: nowrap;
 						text-overflow: ellipsis;
-						padding-left:20/70rem ;
+						margin-left: 5/70rem;
 					}
 					.iconfont{
 						width: 70/70rem;
 						height: 40/70rem;
 						line-height: 40/70rem;
-						font-size: 20/70rem;
+						font-size: 30/70rem;
 						text-align: center;
-						border: 1px solid #ccc;
+						border: 2/70rem solid #ccc;
 						border-radius:30/70rem;
 						position: absolute;
 						top: 15/70rem;
-						left: 160/70rem;
+						left: 180/70rem;
 					}
 					p{
 						margin-top: 10/70rem;
 						line-height: 60/70rem;
-						font-size:30/70rem;
+						font-size:25/70rem;
 					}
-					>div{
+					/*星星定位*/
+					.star,.stars{
 						width:210/70rem;
 						height: 33/70rem;	
 						position: absolute;
-						left: 65%;	
+						left: 68%;	
 						top: 20/70rem;
 					}
 					.star{
@@ -402,7 +406,7 @@
 					}
 					.stars{
 						overflow: hidden;
-						width: 210/70rem;
+						width: 195/70rem;
 						img{
 							width:210/70rem;
 							height: 33/70rem;
@@ -412,19 +416,12 @@
 						}
 					}
 					.image{
-						.Dog1{
-							position: absolute;
-							top: 570%;
-							left: -200%;
-							width: 92%;
-							height: 180/70rem;
-						}
-						.Dog2{
-							position: absolute;
-							top: 570%;
-							left: -100%;
-							width: 92%;
-							height: 180/70rem;
+						width: 100%;
+						img{
+							width: 31.5%;
+							height: 210/70rem;
+							margin:5/70rem 6/70rem 0;
+							border-radius: 25/70rem;
 						}
 					}
 				}

@@ -421,6 +421,9 @@
 			Banner,
 			Title,
 			BannerSlide
+		},
+	    created(){
+			this.$emit("tabbarshow",true)
 		}
 	}
 </script>

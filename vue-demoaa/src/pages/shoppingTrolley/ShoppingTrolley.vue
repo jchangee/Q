@@ -116,6 +116,9 @@
 //				this.list[index].checked=""
 				console.log(this.list.checked)
 			}
+		},
+	    created(){
+			this.$emit("tabbarshow",true)
 		}
 	}
 </script>

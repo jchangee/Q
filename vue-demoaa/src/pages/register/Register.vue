@@ -6,16 +6,16 @@
 			</router-link>
 		</PageHead>
 		<div class="login-input">
-			<input class="phone" type="text" placeholder="请输入昵称" v-model="phone"/>
-			<input class="phone" type="text" placeholder="输入手机号" v-model="phone"/>
-			<input class="phone" type="text" placeholder="设置密码" v-model="phone"/>
-			<input class="phone" type="text" placeholder="请确认密码" v-model="phone"/>
-			<input class="message" type="text" placeholder="输入短信验证码" v-model="message" @keyup="ChangeSub"/>
+			<input class="phone" type="text" placeholder="请输入昵称"/>
+			<input class="phone" type="text" placeholder="输入手机号"/>
+			<input class="phone" type="text" placeholder="设置密码"/>
+			<input class="phone" type="text" placeholder="请确认密码"/>
+			<input class="message" type="text" placeholder="输入短信验证码"/>
 			<span class="verification-code">获取验证码</span>
-			<router-link to="/Register">
+			<router-link to="/Login">
 				<span class="registers fr">用户登录</span>
 			</router-link>
-			<input :class="signIn" type="submit" value="注册" @click="LoginIn()"/>
+			<input :class="register" type="submit" value="注册" @click=""/>
 		</div>
 	</div>
 </template>
@@ -27,7 +27,12 @@
 	export default{
 			components:{
 				PageHead
-			}
+			},
+			data(){
+				return {
+					register:"register",
+				}
+			},
 		}
 </script>
 
@@ -54,13 +59,13 @@
 			line-height: 150/70rem;
 			margin-right: 50/70rem;
 		}
-		.signIn{
+		.register{
 			margin-top: 30/70rem;
 			border-radius:80/70rem ;
 			color: #444040;
 			font-size:35/70rem ;
 		}
-		.signIn2{
+		.register2{
 			margin-top: 30/70rem;
 			border-radius:80/70rem ;
 			color: #fff;

@@ -19,11 +19,12 @@
 		font-size: 40/70rem;	
 		border-bottom: 2/75rem solid #ccc;	
 		text-align:center;
-		text-indent: -20/70rem;
+		position: relative;
 		.iconfont{
 			float: left;
 			font-size: 30/70rem;
-			margin-left: 25/70rem;
+			position: absolute;
+			left: 20/70rem;
 		}	
 	}
 			

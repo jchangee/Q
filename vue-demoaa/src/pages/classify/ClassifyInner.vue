@@ -166,7 +166,10 @@
 				this.changeBg='changeBg2'
 			}
         },
-    }
+    },
+    created(){
+		this.$emit("tabbarshow",true)
+	}
 }
 </script>
 
