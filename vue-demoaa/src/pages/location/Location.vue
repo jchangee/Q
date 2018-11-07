@@ -29,7 +29,8 @@
 			<div class="item">
 				<span>设置为默认:</span>
 				<span class="fr switch">
-					<mt-switch v-model="value" @change="turn"></mt-switch>	
+					<!--开关-->
+					<mt-switch></mt-switch>	
 				</span>
 			</div>
 		</div>
@@ -48,17 +49,8 @@
 		export default{
 			components:{
 				PageHead
-			},
-			date(){
-				return {
-					value:false
-				}
-			},
-			methods:{
-			  	turn: function(){
-			  		console.log(this.value)
-			  	}
 			}
+			
 		}
 </script>
 

@@ -111,7 +111,8 @@
 				</div>
 			</CommodityMsg>
 		</div>
-		
+		<!--返回顶部按钮-->
+		<BackTop></BackTop>
 	</div>
 </template>
 
@@ -124,15 +125,18 @@
 	import ClassifyInnerItem from "@/components/ClassifyInnerItem"
 	//	引入Popup弹出组件
 	import { Popup } from 'mint-ui';
-	
+	//商品子类信息
 	import CommodityMsg from './CommodityMsg'
+	//引入返回顶部
+	import BackTop from '@/components/BackTop'
 	export default {
 		components:{
 //			注册search组件
 			Search,
 			ClassifyInnerItem,
 			PageHead,
-			CommodityMsg
+			CommodityMsg,
+			BackTop
 		},
 		data(){
 			return{
