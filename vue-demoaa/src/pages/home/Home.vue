@@ -402,6 +402,8 @@
 				</li>
 			</ul>
 		</div>
+		<!--返回顶部按钮-->
+		<BackTop></BackTop>
 	</div>
 </template>
 
@@ -414,13 +416,16 @@
 	import Title from "@/components/Title"
 //	引入BannerSlide轮播图组件
 	import BannerSlide from "@/components/BannerSlide"
+	//引入返回顶部
+	import BackTop from '@/components/BackTop'
 	export default {
 		components:{
 //			注册search组件
 			Search,
 			Banner,
 			Title,
-			BannerSlide
+			BannerSlide,
+			BackTop
 		},
 	    created(){
 			this.$emit("tabbarshow",true)

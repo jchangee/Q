@@ -1,7 +1,7 @@
 <template v-if="list.length">
 	<div class="shoppingMsg clearfix ">
 		<div class="fl">
-			<input type="checkbox" class="left-input" :checked="checked"/>
+			<input type="checkbox" class="left-input"/>
 			<div class="imgbox">
 				<img :src="imgUrl"/>
 			</div>

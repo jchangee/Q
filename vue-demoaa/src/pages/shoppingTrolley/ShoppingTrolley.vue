@@ -11,14 +11,14 @@
 		</ShoppingTitle>
 		<div class="list">
 			<!--商品内容列表-->
-			<ShoppingList :checked="item.checked" @countadd="addcount" @Reducecount="Reducecount" @Remove="Remove" :index="index" v-for="(item,index) in list" :id="item.id" :name="item.name" :price="item.price" :count="item.count" :imgUrl="item.imgUrl"></ShoppingList>
+			<ShoppingList  @countadd="addcount" @Reducecount="Reducecount" @Remove="Remove" :index="index" v-for="(item,index) in list" :id="item.id" :name="item.name" :price="item.price" :count="item.count" :imgUrl="item.imgUrl"></ShoppingList>
 		</div>
 		<div class="postageMsg">
 			<p>自营商品25省(甘青蒙藏宁新除外)满99包邮，还差28.00</p>
 		</div>
 		<div class="footer">
 			<div class="fl fl1">
-				<input type="checkbox"  v-on:click='checkedAll' />
+				<input type="checkbox"  />
 				<span>全选</span>
 			</div>
 			<div class="fl fl2">
@@ -60,7 +60,6 @@
 						price: 120,
 						count: 2,
 						imgUrl: img1,
-						checked:'checked'
 					},
 					{
 						id: 2,
@@ -68,7 +67,6 @@
 						price: 528,
 						count: 1,
 						imgUrl: img2,
-						checked:'checked'
 					},
 					{
 						id: 3,
@@ -76,7 +74,6 @@
 						price: 115,
 						count: 4,
 						imgUrl: img3,
-						checked:'checked'
 					},
 					{
 						id: 4,
@@ -84,7 +81,6 @@
 						price: 24.8,
 						count: 4,
 						imgUrl: img4,
-						checked:'checked'
 					}
 				]
 			}

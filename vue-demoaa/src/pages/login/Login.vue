@@ -53,12 +53,6 @@
 					if(this.message!==""){
 						this.popupVisible = true
 					}
-					if(this.popupVisible==true){
-						setTimeout(function(){ 
-//							this.$router.push('/Mine')						
-							console.log(this)
-						}, 500);
-					}
 				},
 			}
 		}
