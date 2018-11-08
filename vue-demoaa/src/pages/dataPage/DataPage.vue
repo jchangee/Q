@@ -50,20 +50,117 @@
 				<span>购买以下套餐组合更优惠</span>
 				<i class="fr iconfont icon-jiantou1"></i>
 			</div>
-			<div class="service-voucher">
+			<div class="service-voucher" @click="Loginvoucher()">
 				<label>领劵</label>
 				<span>满1499减410</span>
 				<span>满1299减330</span>
 				<span>满999减260</span>
 				<i class="fr iconfont icon-jiantou1"></i>
 			</div>
-			<div class="service-service">
+			<mt-popup style="width:100%; height:70%;" v-model="voucher" position="bottom" popup-transition="popup-slide">
+				<div class="bot-title">
+					<span>优惠券</span>					
+				</div>
+				<div class="contents">
+					<div class="coupon-item">
+						<div class="couponPrice">
+							<span class="couponPFlag">￥</span>
+							<span>410</span>
+						</div>
+						<div class="couponInfo">
+	                        <p class="name"><span>黑卡1499减410</span></p>
+	                        <p class="range">订单满1499.00元可用</p>
+	                        <p class="range">使用期限2018.11.11—2018.11.11</p>
+	                        <span class="double-icon">翻倍券</span>
+	                    </div>
+	                    <div class="receiveBtn" dataid="QB7">立即领取</div>
+					</div>
+				</div>
+				<div class="contents">
+					<div class="coupon-item">
+						<div class="couponPrice">
+							<span class="couponPFlag">￥</span>
+							<span>330</span>
+						</div>
+						<div class="couponInfo">
+	                        <p class="name"><span>黑卡1299减330</span></p>
+	                        <p class="range">订单满1299.00元可用</p>
+	                        <p class="range">使用期限2018.11.11—2018.11.11</p>
+	                        <span class="double-icon">翻倍券</span>
+	                    </div>
+	                    <div class="receiveBtn" dataid="QB7">立即领取</div>
+					</div>
+				</div>
+				<div class="contents">
+					<div class="coupon-item">
+						<div class="couponPrice">
+							<span class="couponPFlag">￥</span>
+							<span>260</span>
+						</div>
+						<div class="couponInfo">
+	                        <p class="name"><span>黑卡999减260</span></p>
+	                        <p class="range">订单满999.00元可用</p>
+	                        <p class="range">使用期限2018.11.11—2018.11.11</p>
+	                        <span class="double-icon">翻倍券</span>
+	                    </div>
+	                    <div class="receiveBtn" dataid="QB7">立即领取</div>
+					</div>
+				</div>
+				
+				<div class="bottom">
+					<a href="#" class="bottom-item" @click="Loginvouchers()">我知道了</a>
+				</div>
+			</mt-popup>
+			
+			<div class="service-service" @click="Loginservice()">
 				<label>服务</label>
 				<span>正品保证</span>
 				<span>25省满99元免运费</span>
 				<span>7天无忧退换</span>
 				<i class="fr iconfont icon-jiantou1"></i>
 			</div>
+			<mt-popup style="width:100%; height:70%;" v-model="service" position="bottom" popup-transition="popup-slide">
+				<div class="bot-title">
+					<span>服务说明</span>					
+				</div>
+				<div class="contents">
+					<div class="coupon-item">
+						<div class="couponPrice">
+							<img src="../../assets/images/brand7.jpg"/>
+						</div>
+						<div class="couponInfo">
+	                        <p class="name"><span>正品保证</span></p>
+	                        <p class="range">全场正品 假一罚十</p>
+	                  </div>
+					</div>
+				</div>
+				<div class="contents">
+					<div class="coupon-item">
+						<div class="couponPrice">
+							<img src="../../assets/images/brand7.jpg"/>
+						</div>
+						<div class="couponInfo">
+	                        <p class="name"><span>25省满99元免运费</span></p>
+	                        <p class="range">25省满99元免运费 （甘青蒙藏宁新除外）</p>
+	                  </div>
+					</div>
+				</div>
+				<div class="contents">
+					<div class="coupon-item">
+						<div class="couponPrice">
+							<img src="../../assets/images/brand7.jpg"/>
+						</div>
+						<div class="couponInfo">
+	                        <p class="name"><span>7天无忧退换</span></p>
+	                         <p class="range">7天无忧退换</p>
+	                  </div>
+					</div>
+				</div>
+				
+				<div class="bottom">
+					<a href="#" class="bottom-item" @click="Loginservices()">知道了</a>
+				</div>
+			</mt-popup>
 		</div>
 		<div class="DataPage-evaluation white">
 			<div class="Evaluation-all">
@@ -152,12 +249,13 @@
 
 <script>
 	//	引入Tabbar-item组件
-	import TabbarItem from "@/components/TabbarItem"
+	import TabbarItem from "@/components/TabbarItem";
 	//引入PageHead
-	import PageHead from "@/components/PageHead"
+	import PageHead from "@/components/PageHead";
 	//	引入banner轮播图组件
-	import Banner from "@/components/Banner"
-
+	import Banner from "@/components/Banner";
+	//	引入Popup弹出组件
+	import { Popup } from 'mint-ui';
 	export default {
 		components: {
 			PageHead,
@@ -166,6 +264,26 @@
 		},
 		created(){
 			this.$emit("tabbarshow",false)
+		},
+		data(){
+			return{
+				voucher:false,
+				service:false,
+			}
+		},
+		methods:{
+			Loginvoucher(){
+				this.voucher=true
+			},
+			Loginvouchers(){
+				this.voucher=false
+			},
+			Loginservice(){
+				this.service=true
+			},
+			Loginservices(){
+				this.service=false
+			},
 		}
 	}
 </script>
@@ -270,7 +388,7 @@
 			.iconfont {
 				font-size:20/70rem;
 				color: #999;
-				padding: 10/70rem 0;
+				padding: -10/70rem 0;
 			}
 			.service-promotion {
 				width: 100%;
@@ -315,6 +433,94 @@
 					color: #fff;
 				}
 			}
+			.bot-title{
+				text-align: center;
+			    padding: 30/70rem 35/70rem;
+			    font-size:30/70rem;
+			    position: relative;
+			    span{
+			    	background: #fff;
+    				padding: 0 15/70rem;
+			    }
+			}
+			.contents{
+			    position: relative;
+			    max-height: 400/70rem;
+			    overflow: hidden;
+			    .coupon-item{
+			    	height: 150/70rem;
+			    	background-color: #fff;
+				    margin: 15/70rem 20/70rem;
+				    border: 1px solid #dedede;
+				    position: relative;
+				    color: #666;
+				    display: flex;
+				    align-items: center;
+				    .couponPrice{
+				    	font-size: 60/70rem;
+					    margin-right: 70/70rem;
+					    color: #f55b50;
+					    display: flex;
+					    align-items: flex-start;
+					    width: 17%;
+					   	img{
+					   		width: 120/70rem;
+					   		height: 90/70rem;
+					   	}
+				    }
+				    .couponInfo{
+				    	flex: 1;
+				    	font-size:20/70rem ;
+				    	.name{
+				    		font-size:30/70rem ;
+				    		margin-bottom: 10/70rem;
+				    	}
+				    	.double-icon{
+				    		width: 100/70rem;
+						    height: 40/70rem;
+						    background: url(../../assets/images/logo1.png);
+						    background-size: 100% 100%;
+						    position: absolute;
+						    right: 5%;
+						    top: -10/70rem;
+						    color: #fff;
+						    font-size: 25/70rem;
+						    line-height:40/70rem;
+						    text-align: center;
+				    	}
+				    }
+				    .receiveBtn{
+				    	width: 160/70rem;
+					    height: 60/70rem;
+					    line-height: 60/70rem;
+					    text-align: center;
+					    display: inline-block;
+					    color: #fff;
+					    border-radius: 50/70rem;
+					    background: #f55b50;
+					    font-size: 30/70rem;
+				    }
+			    }
+			}
+			.bottom{
+			    position: fixed;
+			    left: 5%;
+			    bottom: 0%;
+			    width: 90%;
+			    height: 90/70rem;
+			    line-height: 90/70rem;
+			    text-align: center;
+			    display: flex;
+			    margin-bottom: 10/70rem;
+			    .bottom-item{
+			    	display: block;
+				    width: 100%;
+				    background: #ff5e32;
+				    border-radius: 100/70rem;
+				    color: #fff;
+				    font-size: 40/70rem;
+			    }
+			}
 			.service-service {
 				width: 100%;
 				height: 50/70rem;
@@ -350,7 +556,7 @@
 				.iconfont{
 					font-size:20/70rem;
 					color: #999;
-					padding: 2/70rem 10/70rem;
+					padding: -10/70rem 10/70rem;
 				}
 			}
 			.Evaluation-item{

@@ -7,7 +7,7 @@
 		</PageHead>
 		<div class="login-input">
 			<input class="phone" type="text" placeholder="输入手机号" v-model="phone"/>
-			<span class="verification-code">获取验证码</span>
+			<span class="verification-codes">获取验证码</span>
 			<input class="message" type="text" placeholder="输入短信验证码" v-model="message" @keyup="ChangeSub"/>
 			<router-link to="/Register">
 				<span class="registers fr">用户注册</span>
@@ -42,7 +42,7 @@
 			methods:{
 //				判断短信验证码的值是否为空的时候改变登录按钮的样式
 				ChangeSub(){
-					if(this.message==""){						
+					if(thislo.message==""){						
 						this.signIn="signIn"						
 					}else{
 						this.signIn="signIn2"
@@ -72,7 +72,7 @@
 		.phone{
 			position: relative;
 		}
-		.verification-code{
+		.verification-codes{
 			position: absolute;
 			top:215/70rem;
 			left: 75%;
