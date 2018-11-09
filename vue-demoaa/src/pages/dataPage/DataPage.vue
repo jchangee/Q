@@ -243,21 +243,23 @@
 			</TabbarItem>
 			<span class="bottom-item1" @click="Loginitems()">立即购买</span>
 			<span class="bottom-item2" @click="Loginitems()">加入购物车</span>
-			<mt-popup style="width:100%; height:40%;" v-model="item" position="bottom" popup-transition="popup-slide">
-				<div class="imgbox">
-					<img src="/static/img/banner-slide4.3d829c4.png">
-					<i class="f45 iconfont icon-552cd445ad39f">{{price}}</i>
-					<span>库存7885件</span>
+			<mt-popup style="width:100%; height:50%;" v-model="item" position="bottom" popup-transition="popup-slide">
+				<div class="clearfix imgCount">
+					<div class="imgbox fl">
+						<img src="/static/img/banner-slide4.3d829c4.png">
+					</div>
+					<div class="fl">
+						<p><i class="f45 iconfont icon-552cd445ad39f">{{price}}</i></p>
+						<span>库存7885件</span>						
+					</div>
 				</div>
 				<div class="bottom-detail">
-					<span>购买数量</span>
-					<span class="reduce_num"></span>
-					<span class="num">1</span>
-					<span class="add_num"></span>
+					<span class="fl">购买数量</span>
+					<span class="add_num fr" @click="addCount()"></span>
+					<span class="num fr">{{count}}</span>
+					<span class="reduce_num fr" @click="reduceCount()"></span>
 				</div>
-				<div class="bottom">
-					<a href="#" class="bottom-item" @click="Loginitem()">确定</a>
-				</div>
+				<div class="bottom" @click="Loginitem()">确定</div>
 			</mt-popup>
 		</div>
 	</div>
@@ -286,7 +288,7 @@
 				voucher:false,
 				service:false,
 				item:false,
-				price: 120,
+				price: 71,
 				count: 1,
 			}
 		},
@@ -308,7 +310,18 @@
 			},
 			Loginitem(){
 				this.item=false
+			},
+			addCount(){
+				this.count+=1;
+				this.price+=71			
+			},
+			reduceCount(){
+				if(this.count>1){
+					this.count-=1;
+					this.price-=71			
+				}
 			}
+			
 		}
 	}
 </script>
@@ -761,35 +774,30 @@
 				background:#ff6353;
 				border-radius:0rem 30/70rem 30/70rem 0rem;
 			}
-			.imgbox{
-				width: 170/60rem;
-				height: 170/60rem;
-				height: 170/60rem;
-				border: 1px solid gainsboro;
-				box-sizing: border-box;
-				text-align: center;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				position: relative;
-				top: 30/70rem;
-				left: 30/70rem;
-				img{
-					width: 50%;
-				}
-				i{
-					position: absolute;
-					top:20/70rem;
-					left: 210/70rem;
-					font-size:30/70rem ;
-				}
-				span{
-					width: 150/70rem;
-					position: absolute;
-					top:65/70rem;
-					left: 190/70rem;
-					font-size:20/70rem;
-					color: #999;
+			.imgCount{
+				width: 100%;
+				padding: 40/70rem 30/70rem 10/70rem;
+				.imgbox{
+					width: 170/60rem;
+					height: 170/60rem;
+					height: 170/60rem;
+					border: 2/70rem solid gainsboro;
+					box-sizing: border-box;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					margin-right:30/70rem;
+					img{
+						width: 50%;
+					}
+					i{
+						font-size:30/70rem ;
+					}
+					span{
+						width: 150/70rem;
+						font-size:20/70rem;
+						color: #999;
+					}
 				}
 			}
 			.bottom-detail{
@@ -797,57 +805,43 @@
 				border-top:1px solid #ccc ;
 				border-bottom: 1px solid #ccc;
 				margin-top: 40/70rem;
-				width: 90%;
-				left: 5%;
 				height: 70/70rem;
 				line-height: 70/70rem;
 				font-size: 30/70rem;
+				padding: 0 30/70rem;
 				span{
+					display: inline-block;
 					width: 120/70rem;
-				    float: left;
 				    font-size: 30/70rem;
+					height: 70/70rem;
+					line-height: 70/70rem;
+					text-align: center;
 				}
 				.reduce_num{
-					position: absolute;
-					left: 70%;
-					top: 20%;
-					width: 50/70rem;
-					height: 50/70rem;
+					width: 60/70rem;
 					background: url(../../assets/images/Datapage1.png) no-repeat;
 					background-size: 1.5em;
-				}
-				.num{
-					position: absolute;
-					left: 82%;
+					background-position: 50%;
 				}
 				.add_num{
-					position: absolute;
-					left: 90%;
-					top: 20%;
-					width: 50/70rem;
-					height: 50/70rem;
+					width: 60/70rem;
 					background: url(../../assets/images/Data.png) no-repeat;
 					background-size: 1.5em;
+					background-position: 50%;
 				}
 			}
 			.bottom{
 			    position: fixed;
 			    left: 5%;
-			    bottom: 0%;
+			    bottom: 5%;
 			    width: 90%;
 			    height: 90/70rem;
 			    line-height: 90/70rem;
 			    text-align: center;
-			    display: flex;
-			    margin-bottom: 10/70rem;
-			    .bottom-item{
-			    	display: block;
-				    width: 100%;
-				    background: #ff5e32;
-				    border-radius: 100/70rem;
-				    color: #fff;
-				    font-size: 40/70rem;
-			    }
+			    background: #ff5e32;
+			    border-radius: 100/70rem;
+			    color: #fff;
+			    font-size: 40/70rem;
 			}
 		}
 		
