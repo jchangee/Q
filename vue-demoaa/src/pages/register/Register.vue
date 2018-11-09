@@ -13,10 +13,10 @@
 				<input@blur="checkphone()" v-model = "phone" class="phone" type="text" :placeholder="msgphone"/>
 			</div>
 			<div class="hintBox">
-				<input @blur="checkpassword()" v-model="password" class="phone" type="text" :placeholder="msgpassword"/>
+				<input @blur="checkpassword()" v-model="password" class="phone" type="password" :placeholder="msgpassword"/>
 			</div>
 			<div class="hintBox">
-				<input @blur="checkpwd()" v-model="pwd" class="phone" type="text" :placeholder="msgpwd"/>
+				<input @blur="checkpwd()" v-model="pwd" class="phone" type="password" :placeholder="msgpwd"/>
 			</div>
 			<div class="hintBox">
 				<input @blur="authCode()" v-model="authCodemsg" class="message" type="text" :placeholder="msgauthCode"/>
