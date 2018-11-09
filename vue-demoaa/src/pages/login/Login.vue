@@ -42,7 +42,7 @@
 			methods:{
 //				判断短信验证码的值是否为空的时候改变登录按钮的样式
 				ChangeSub(){
-					if(thislo.message==""){						
+					if(this.message==""){						
 						this.signIn="signIn"						
 					}else{
 						this.signIn="signIn2"
