@@ -14,7 +14,7 @@
 				<img src="../../assets/images/DogFood2.jpg" alt="" />
 			</div>
 			<div class="swiper-slide" slot="swiper-con">
-				<img src="../../assets/images/DogFood4.jpg" alt="" />
+				<img src="../../assets/images/DogFood4.jpg" alt="" />   
 			</div>
 			<div class="swiper-slide" slot="swiper-con">
 				<img src="../../assets/images/DogFood3.jpg" alt="" />
@@ -241,8 +241,24 @@
 			<TabbarItem txt="购物车" mark="shoppingTrolley">
 				<i class="iconfont icon-gouwuche"></i>
 			</TabbarItem>
-			<span class="bottom-item1">立即购买</span>
-			<span class="bottom-item2">加入购物车</span>
+			<span class="bottom-item1" @click="Loginitems()">立即购买</span>
+			<span class="bottom-item2" @click="Loginitems()">加入购物车</span>
+			<mt-popup style="width:100%; height:40%;" v-model="item" position="bottom" popup-transition="popup-slide">
+				<div class="imgbox">
+					<img src="/static/img/banner-slide4.3d829c4.png">
+					<i class="f45 iconfont icon-552cd445ad39f">{{price}}</i>
+					<span>库存7885件</span>
+				</div>
+				<div class="bottom-detail">
+					<span>购买数量</span>
+					<span class="reduce_num"></span>
+					<span class="num">1</span>
+					<span class="add_num"></span>
+				</div>
+				<div class="bottom">
+					<a href="#" class="bottom-item" @click="Loginitem()">确定</a>
+				</div>
+			</mt-popup>
 		</div>
 	</div>
 </template>
@@ -269,6 +285,9 @@
 			return{
 				voucher:false,
 				service:false,
+				item:false,
+				price: 120,
+				count: 1,
 			}
 		},
 		methods:{
@@ -284,6 +303,12 @@
 			Loginservices(){
 				this.service=false
 			},
+			Loginitems(){
+				this.item=true
+			},
+			Loginitem(){
+				this.item=false
+			}
 		}
 	}
 </script>
@@ -735,6 +760,94 @@
 				color: #fff;
 				background:#ff6353;
 				border-radius:0rem 30/70rem 30/70rem 0rem;
+			}
+			.imgbox{
+				width: 170/60rem;
+				height: 170/60rem;
+				height: 170/60rem;
+				border: 1px solid gainsboro;
+				box-sizing: border-box;
+				text-align: center;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				position: relative;
+				top: 30/70rem;
+				left: 30/70rem;
+				img{
+					width: 50%;
+				}
+				i{
+					position: absolute;
+					top:20/70rem;
+					left: 210/70rem;
+					font-size:30/70rem ;
+				}
+				span{
+					width: 150/70rem;
+					position: absolute;
+					top:65/70rem;
+					left: 190/70rem;
+					font-size:20/70rem;
+					color: #999;
+				}
+			}
+			.bottom-detail{
+				position: relative;
+				border-top:1px solid #ccc ;
+				border-bottom: 1px solid #ccc;
+				margin-top: 40/70rem;
+				width: 90%;
+				left: 5%;
+				height: 70/70rem;
+				line-height: 70/70rem;
+				font-size: 30/70rem;
+				span{
+					width: 120/70rem;
+				    float: left;
+				    font-size: 30/70rem;
+				}
+				.reduce_num{
+					position: absolute;
+					left: 70%;
+					top: 20%;
+					width: 50/70rem;
+					height: 50/70rem;
+					background: url(../../assets/images/Datapage1.png) no-repeat;
+					background-size: 1.5em;
+				}
+				.num{
+					position: absolute;
+					left: 82%;
+				}
+				.add_num{
+					position: absolute;
+					left: 90%;
+					top: 20%;
+					width: 50/70rem;
+					height: 50/70rem;
+					background: url(../../assets/images/Data.png) no-repeat;
+					background-size: 1.5em;
+				}
+			}
+			.bottom{
+			    position: fixed;
+			    left: 5%;
+			    bottom: 0%;
+			    width: 90%;
+			    height: 90/70rem;
+			    line-height: 90/70rem;
+			    text-align: center;
+			    display: flex;
+			    margin-bottom: 10/70rem;
+			    .bottom-item{
+			    	display: block;
+				    width: 100%;
+				    background: #ff5e32;
+				    border-radius: 100/70rem;
+				    color: #fff;
+				    font-size: 40/70rem;
+			    }
 			}
 		}
 		
