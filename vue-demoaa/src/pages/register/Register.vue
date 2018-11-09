@@ -7,24 +7,19 @@
 		</PageHead>
 		<div class="login-input">
 			<div class="hintBox">
-				<input @blur="checkname()" v-model="name" class="phone" type="text" placeholder="请输入昵称"/>
-				<span class="hint">{{msgame}}</span>
+				<input @blur="checkname()" v-model="name" class="phone" type="text" :placeholder="msgame"/>
 			</div>
 			<div class="hintBox">
-				<input@blur="checkphone()" v-model = "phone" class="phone" type="text" placeholder="输入手机号"/>
-				<span class="hint">{{msgphone}}</span>
+				<input@blur="checkphone()" v-model = "phone" class="phone" type="text" :placeholder="msgphone"/>
 			</div>
 			<div class="hintBox">
-				<input @blur="checkpassword()" v-model="password" class="phone" type="text" placeholder="设置密码"/>
-				<span class="hint">{{msgpassword}}</span>
+				<input @blur="checkpassword()" v-model="password" class="phone" type="text" :placeholder="msgpassword"/>
 			</div>
 			<div class="hintBox">
-				<input @blur="checkpwd()" v-model="pwd" class="phone" type="text" placeholder="请确认密码"/>
-				<span class="hint">{{msgpwd}}</span>
+				<input @blur="checkpwd()" v-model="pwd" class="phone" type="text" :placeholder="msgpwd"/>
 			</div>
 			<div class="hintBox">
-				<input @blur="authCode()" v-model="authCodemsg" class="message" type="text" placeholder="输入短信验证码"/>
-				<span class="hint">{{msgauthCode}}</span>
+				<input @blur="authCode()" v-model="authCodemsg" class="message" type="text" :placeholder="msgauthCode"/>
 			</div>
 			<span class="verification-code">获取验证码</span>
 			<router-link to="/Login">
@@ -51,16 +46,16 @@
 			data(){
 				return {
 					register:"register",
-					msgame:"",
-		            msgpassword:"",
-		            msgpwd:"",
-		            msgphone:"",
+					msgame:"请输入昵称",
+		            msgpassword:"输入密码",
+		            msgpwd:"确认密码",
+		            msgphone:"请输入手机号",
 		            name:"",
 		            password:"",
 		            pwd:"",
 		            phone:"",
 		            authCodemsg:"",
-		            msgauthCode:"",
+		            msgauthCode:"请输入验证码",
 		            Phonereg:/^(((1[0-9]{2})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/,
 //		              	 密码(以字母开头，长度在6~18之间，只能包含字母、数字和下划线)
 		            pwdReg:/^[a-zA-Z]\w{5,17}$/,
@@ -73,35 +68,30 @@
 	            checkname(){
 	                if(this.name==""){
 	                	this.msgame = "用户名不能为空";
-	                }else{	                	
-	                	this.msgame = "";
 	                }
 	            },
                	checkphone(){
 	                if(this.phone==""){
 	                    this.msgphone="手机号不能为空";
 	                }else if(!this.Phonereg.test(this.phone)){
+	                	this.phone=""
 	                    this.msgphone="格式错误";
-	                }else{
-	                    this.msgphone="输入正确"
 	                }
 	            },
 	            checkpassword(){
 		          	if(this.password==""){
 		            	this.msgpassword = "密码不能为空"
 		          	}else if(!this.pwdReg.test(this.password)){
+		          		this.password=""
 		            	this.msgpassword = "密码不合法";
-		          	}else{
-		            	this.msgpassword = "密码合法";
 		          	}
 		        },
 		        checkpwd(){
 	                if(this.pwd==""){
 	                    this.msgpassword ="密码不能为空"
 	                }else if(this.pwd !=this.password){
+	                	this.pwd=""
 	                    this.msgpwd = "输入密码不一致"
-	                }else{
-	                    this.msgpwd ="输入密码正确"
 	                }
 	            },
 	            authCode(){
@@ -109,10 +99,10 @@
 	            		this.msgauthCode="验证码不能为空"
 	            		this.register="register"
 	            	}else if(!this.authCodeReg.test(this.authCodemsg)){
+	            		this.authCodemsg=""
 	            		this.msgauthCode="验证码错误"
 	            		this.register="register"
 	            	}else{
-	            		this.msgauthCode="验证码正确"
 	            		this.register="register2"
 	            	}
 	            },
@@ -121,15 +111,10 @@
 					if(this.authCodemsg!==""&&this.authCodeReg.test(this.authCodemsg)){
 						this.popupVisible = true
 						this.name = ""
-						this.msgame = ""
 						this.phone = ""
-						this.msgphone = ""
 						this.password = ""
-						this.msgpassword = ""
 						this.pwd = ""
-						this.msgpwd = ""
 						this.authCodemsg = ""
-						this.msgauthCode = ""
 					}
 				},
 	        }
@@ -143,15 +128,7 @@
 		margin-top: 75/70rem;
 		margin-bottom: 200/70rem;
 		.hintBox{
-			position: relative;
 			width: 100%;
-			.hint{
-				position: absolute;
-				right: 5%;
-				top: 75/70rem;
-				font-size: 30/70rem;
-				color: gray;
-			}
 		}
 		.phone{
 			position: relative;
