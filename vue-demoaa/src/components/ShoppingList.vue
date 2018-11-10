@@ -1,7 +1,7 @@
 <template v-if="list.length">
 	<div class="shoppingMsg clearfix ">
 		<div class="fl">
-			<input type="checkbox" class="left-input"/>
+			<i class="iconfont icon-dui1" :class="{bule:flag}" @click="dui(index)"></i>
 			<div class="imgbox">
 				<img :src="imgUrl"/>
 			</div>
@@ -31,7 +31,7 @@
 
 <script>
 	export default {
-		props:["price","count","id","name","imgUrl","index","checked"],
+		props:["price","count","id","name","imgUrl","index","flag"],
 		
 		methods: {
 	        handleReduce: function(index){
@@ -43,17 +43,22 @@
 	        handleRemove: function(index){
 	        	this.$emit("Remove",this.index)
 	        },
-//	        
+	        dui:function(index){
+	        	this.$emit("dui",this.index)
+	        }
    		 }
 	}
 </script>
 
 <style lang="less">
+	.bule{
+		color: deepskyblue;
+	}
 	/*购物车的信息*/
 .shoppingMsg{
 	height: 240/60rem;
 	background: #f8f8f8;
-	padding: 30/60rem 20/60rem 0;
+	padding: 30/60rem 15/60rem 0;
 	box-sizing: border-box;
 	font-size: 25/60rem;
 	position: relative;
@@ -64,7 +69,7 @@
 		width: 170/60rem;
 		height: 170/60rem;
 		height: 170/60rem;
-		border: 1px solid gainsboro;
+		border: 2/60rem solid gainsboro;
 		box-sizing: border-box;
 		text-align: center;
 		display: flex;
@@ -79,6 +84,9 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		i{
+			margin-right: 10/60rem;
+		}
 	}
 	>.fr{
 		width: 60%;

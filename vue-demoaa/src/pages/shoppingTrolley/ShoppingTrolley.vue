@@ -5,21 +5,33 @@
 		</Title>
 		<ShoppingTitle>
 			<div class="shoppingTitle">
-				<input type="checkbox" />
+				<i class="iconfont icon-dui1 bule"></i>
 				<span>Q宠自营</span>
 			</div>
 		</ShoppingTitle>
 		<div class="list">
 			<!--商品内容列表-->
-			<ShoppingList  @countadd="addcount" @Reducecount="Reducecount" @Remove="Remove" :index="index" v-for="(item,index) in list" :id="item.id" :name="item.name" :price="item.price" :count="item.count" :imgUrl="item.imgUrl"></ShoppingList>
+			<ShoppingList  
+				@countadd="addcount" 
+				@Reducecount="Reducecount" 
+				@Remove="Remove" 
+				@dui="dui"
+				:index="index" 
+				v-for="(item,index) in list" 
+				:id="item.id" 
+				:name="item.name" 
+				:price="item.price" 
+				:count="item.count" 
+				:imgUrl="item.imgUrl"
+				:flag="item.flag">
+			</ShoppingList>
 		</div>
 		<div class="postageMsg">
 			<p>自营商品25省(甘青蒙藏宁新除外)满99包邮，还差28.00</p>
 		</div>
 		<div class="footer">
-			<div class="fl fl1">
-				<input type="checkbox"  />
-				<span>全选</span>
+			<div class="fl fl1" @click="allDui()">
+				<i class="iconfont icon-dui1" :class="{bule:allFlag}" ></i>全选
 			</div>
 			<div class="fl fl2">
 				<div class="sum">合计：<span>￥{{ totalPrice }}</span></div>
@@ -60,6 +72,7 @@
 						price: 120,
 						count: 2,
 						imgUrl: img1,
+						flag:true
 					},
 					{
 						id: 2,
@@ -67,6 +80,7 @@
 						price: 528,
 						count: 1,
 						imgUrl: img2,
+						flag:true
 					},
 					{
 						id: 3,
@@ -74,6 +88,7 @@
 						price: 115,
 						count: 4,
 						imgUrl: img3,
+						flag:true
 					},
 					{
 						id: 4,
@@ -81,8 +96,11 @@
 						price: 24.8,
 						count: 4,
 						imgUrl: img4,
+						flag:true
 					}
-				]
+				],
+				allFlag:true,
+				checked:[]
 			}
 		},
 		computed: {
@@ -108,9 +126,35 @@
 			Remove(index) {
 				this.list.splice(index, 1);
 			},
-			checkedAll(index) {
-//				this.list[index].checked=""
-				console.log(this.list.checked)
+			dui(index){
+				if(this.list[index].flag==true){
+					this.list[index].flag=false
+					this.checked.push(this.list[index].id)
+					if(this.checked.length!=0){
+						this.allFlag=false						
+					}
+//					console.log(this.checked)
+				}else{
+					this.list[index].flag=true
+					this.checked.pop()
+//					console.log(this.checked)
+					if(this.checked.length==0){
+						this.allFlag=true
+					}
+				}
+			},
+			allDui() {
+				if(this.allFlag==true){
+					this.allFlag=false
+					for(var i=0;i<=this.list.length;i++){
+						this.list[i].flag=false	
+					}
+				}else{
+					this.allFlag=true
+					for(var i=0;i<=this.list.length;i++){
+						this.list[i].flag=true
+					}
+				}
 			}
 		},
 	    created(){
